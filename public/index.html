@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image to S3</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Your Image</h1>
+        <p class="subheading">Select an image and upload it to Amazon S3. The compressed version will be displayed below.</p>
+        
+        <!-- Image Upload Form -->
+        <form id="uploadForm" enctype="multipart/form-data" class="upload-form">
+            <div class="custom-file-input">
+                <input type="file" id="fileInput" accept="image/*" required onchange="previewFile()">
+                <label for="fileInput" id="fileLabel">Choose Image</label>
+            </div>
+
+            <!-- Image Preview Section -->
+            <div class="preview-container" id="previewContainer" style="display:none;">
+                <p>Selected Image Preview:</p>
+                <img id="previewImage" src="#" alt="Image Preview">
+            </div>
+
+            <button type="submit" class="upload-btn">Upload Image</button>
+
+            <!-- Progress Bar -->
+            <div id="progress-bar-container" style="display:none;">
+                <div id="progress-bar"></div>
+            </div>
+        </form>
+
+        <p id="status"></p>
+
+        <!-- Compressed Image Section -->
+        <div id="compressedImageSection" class="compressed-image-section" style="display:none;">
+            <h2>Compressed Image</h2>
+            <div id="compressedImageContainer" class="image-container"></div>
+            <a id="downloadLink" href="#" download class="download-btn">Download Compressed Image</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
